@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Nans_RequestPrice::main_content" title="Request Price" module="Nans_RequestPrice" sortOrder="60" resource="Nans_RequestPrice::main_content"/>
+        <add id="Nans_RequestPrice::request" title="Requests" module="Nans_RequestPrice" sortOrder="61" parent="Nans_RequestPrice::main_content" action="request/price" resource="Nans_RequestPrice::request"/>
+    </menu>
+</config>
