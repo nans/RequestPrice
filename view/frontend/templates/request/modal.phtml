@@ -1,0 +1,49 @@
+<form class="form" id="popup-modal" data-mage-init='{"validation":{}}'>
+    <div id="request-error-messages"></div>
+    <div id="request-success-messages"></div>
+    <?= $block->getBlockHtml('formkey') ?>
+    <fieldset class="fieldset request" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+        <div class="field email required">
+            <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+            <div class="control">
+                <input
+                        name="email"
+                        autocomplete="off"
+                        id="price_request_email"
+                        type="email"
+                        class="input-text"
+                        title="<?= $block->escapeHtmlAttr(__('Email')) ?>"
+                        data-validate="{required:true, 'validate-email':true}"
+                >
+            </div>
+        </div>
+        <div class="field name required">
+            <label class="label" for="name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+            <div class="control">
+                <input
+                        name="name"
+                        autocomplete="off"
+                        id="price_request_name"
+                        type="text"
+                        class="input-text"
+                        title="<?= $block->escapeHtmlAttr(__('Name')) ?>"
+                        data-validate="{required:true}"
+                >
+            </div>
+        </div>
+        <div class="field comment">
+            <label class="label" for="comment"><span><?= $block->escapeHtml(__('Comment')) ?></span></label>
+            <div class="control">
+                <input
+                        name="comment"
+                        autocomplete="off"
+                        id="price_request_comment"
+                        type="text"
+                        class="input-text"
+                        title="<?= $block->escapeHtmlAttr(__('Comment')) ?>"
+                        data-validate="{required:false}"
+                >
+            </div>
+        </div>
+    </fieldset>
+</form>

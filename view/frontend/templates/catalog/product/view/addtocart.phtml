@@ -1,0 +1,30 @@
+<?php
+// @codingStandardsIgnoreFile
+/** @var $block \Magento\Catalog\Block\Product\View */
+$product = $block->getProduct();
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "price_request": {
+                    "component" : "Nans_RequestPrice/js/request",
+                    "baseUrl"   : "<?= $block->getBaseUrl() ?>",
+                    "sku"       : "<?= $product->getSku() ?>"
+                }
+            }
+        }
+    }
+}
+</script>
+
+<div class="box-tocart">
+    <div class="fieldset">
+        <div class="actions">
+            <button type="button" title="Add to Cart" class="action primary tocart" id="product-price-request-button">
+                <span><?php echo __('Request Price'); ?></span>
+            </button>
+        </div>
+    </div>
+</div>

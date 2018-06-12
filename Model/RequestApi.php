@@ -9,7 +9,7 @@ use Nans\RequestPrice\Api\Repository\RequestRepositoryInterface;
 
 class RequestApi implements RequestApiInterface
 {
-    /** @var Http  */
+    /** @var Http */
     protected $request;
 
     /**
@@ -30,15 +30,25 @@ class RequestApi implements RequestApiInterface
     }
 
     /**
-     * @return array
+     * @param string $email
+     * @param string $name
+     * @param string $comment
+     * @param string $sku
+     * @return string
      */
-    public function makeRequest(): array
+    public function makeRequest(string $email, string $name, string $comment, string $sku): string
     {
-        $params = $this->request->getParams();
-        $email = $this->request->getParam(RequestInterface::KEY_EMAIL);
-        $name = $this->request->getParam(RequestInterface::KEY_NAME);
-        $comment = $this->request->getParam(RequestInterface::KEY_COMMENT);
-
-        return [['result' => true]];
+        try {
+            /** @var RequestInterface $request */
+            $request = $this->requestRepository->create();
+            $request->setSku($sku);
+            $request->setComment($comment);
+            $request->setName($name);
+            $request->setEmail($email);
+            $this->requestRepository->save($request);
+        } catch (\Exception $exception) {
+            return json_encode(['success' => false, 'message' => __('Request has not been sent')]);
+        }
+        return json_encode(['success' => true, 'message' => __('Request not sent')]);
     }
 }
