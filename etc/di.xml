@@ -2,6 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Nans\RequestPrice\Api\Repository\RequestRepositoryInterface" type="Nans\RequestPrice\Model\Repository\RequestRepository" />
     <preference for="Nans\RequestPrice\Api\Data\RequestInterface" type="Nans\RequestPrice\Model\Request" />
+    <preference for="Nans\RequestPrice\Api\Data\RequestApiInterface" type="Nans\RequestPrice\Model\RequestApi" />
 
     <virtualType name="PriceGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
         <arguments>
