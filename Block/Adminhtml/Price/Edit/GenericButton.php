@@ -5,19 +5,16 @@ namespace Nans\RequestPrice\Block\Adminhtml\Price\Edit;
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Exception\NotFoundException;
 use Magento\Framework\Registry;
+use Magento\Framework\UrlInterface;
 
 class GenericButton
 {
     /**
-     * Url Builder
-     *
-     * @var \Magento\Framework\UrlInterface
+     * @var UrlInterface
      */
     protected $urlBuilder;
 
     /**
-     * Registry
-     *
      * @var Registry
      */
     protected $registry;
@@ -29,7 +26,8 @@ class GenericButton
     public function __construct(
         Context $context,
         Registry $registry
-    ) {
+    )
+    {
         $this->urlBuilder = $context->getUrlBuilder();
         $this->registry = $registry;
     }
@@ -42,7 +40,7 @@ class GenericButton
     {
         $request = $this->registry->registry('request_price');
         if (!$request->getId()) {
-            throw new NotFoundException(__('Request not found'));
+            throw new NotFoundException(__('Record not found'));
         }
         return $request->getId();
     }
@@ -54,7 +52,7 @@ class GenericButton
      * @param   array $params
      * @return  string
      */
-    public function getUrl($route = '', $params = [])
+    public function getUrl($route = '', $params = []): string
     {
         return $this->urlBuilder->getUrl($route, $params);
     }
@@ -65,7 +63,7 @@ class GenericButton
      * @param string $name
      * @return string
      */
-    public function canRender($name)
+    public function canRender($name): string
     {
         return $name;
     }

@@ -15,7 +15,7 @@ class RequestActions extends Column
     const PATH_DELETE = 'request/price/delete';
 
     /** @var UrlInterface */
-    protected $_urlBuilder;
+    protected $urlBuilder;
 
     /**
      * QuestionActions constructor.
@@ -33,7 +33,7 @@ class RequestActions extends Column
         array $components = [],
         array $data = []
     ) {
-        $this->_urlBuilder = $urlBuilder;
+        $this->urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
@@ -51,13 +51,13 @@ class RequestActions extends Column
                 $name = $this->getData('name');
                 if (isset($item[RequestInterface::KEY_ID])) {
                     $item[$name]['edit'] = [
-                        'href'  => $this->_urlBuilder->getUrl(
+                        'href'  => $this->urlBuilder->getUrl(
                             self::PATH_EDIT, ['id' => $item[RequestInterface::KEY_ID]]
                         ),
                         'label' => __('Edit')
                     ];
                     $item[$name]['delete'] = [
-                        'href'    => $this->_urlBuilder->getUrl(
+                        'href'    => $this->urlBuilder->getUrl(
                             self::PATH_DELETE,
                             ['id' => $item[RequestInterface::KEY_ID]]
                         ),

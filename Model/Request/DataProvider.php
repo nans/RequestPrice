@@ -86,7 +86,7 @@ class DataProvider extends AbstractDataProvider
 
         $params = $this->request->getParams();
         if (!is_array($params) || !key_exists('id', $params)) {
-            throw new NotFoundException(__('Request data not found'));
+            throw new NotFoundException(__('Data not found'));
         }
 
         $request = $this->requestRepository->getById($params['id']);

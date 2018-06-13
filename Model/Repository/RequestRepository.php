@@ -17,17 +17,17 @@ class RequestRepository implements RequestRepositoryInterface
     /**
      * @var array
      */
-    protected $_instances = [];
+    protected $instances = [];
 
     /**
      * @var ResourceRequest
      */
-    protected $_resource;
+    protected $resource;
 
     /**
      * @var RequestFactory
      */
-    protected $_factory;
+    protected $factory;
 
     /**
      * Factory constructor
@@ -39,8 +39,8 @@ class RequestRepository implements RequestRepositoryInterface
         RequestFactory $factory
     )
     {
-        $this->_resource = $resource;
-        $this->_factory = $factory;
+        $this->resource = $resource;
+        $this->factory = $factory;
     }
 
     /**
@@ -59,12 +59,12 @@ class RequestRepository implements RequestRepositoryInterface
         }
 
         try {
-            unset($this->_instances[$id]);
-            $this->_resource->delete($request);
+            unset($this->instances[$id]);
+            $this->resource->delete($request);
         } catch (Exception $e) {
             throw new CouldNotDeleteException(__($e->getMessage()));
         }
-        unset($this->_instances[$id]);
+        unset($this->instances[$id]);
     }
 
     /**
@@ -91,16 +91,16 @@ class RequestRepository implements RequestRepositoryInterface
             throw new NoSuchEntityException();
         }
 
-        if (!isset($this->_instances[$id])) {
+        if (!isset($this->instances[$id])) {
             /** @var RequestInterface|AbstractModel $request */
-            $request = $this->_factory->create();
-            $this->_resource->load($request, $id);
+            $request = $this->factory->create();
+            $this->resource->load($request, $id);
             if (!$request->getId()) {
                 throw new NoSuchEntityException();
             }
-            $this->_instances[$id] = $request;
+            $this->instances[$id] = $request;
         }
-        return $this->_instances[$id];
+        return $this->instances[$id];
     }
 
     /**
@@ -113,7 +113,7 @@ class RequestRepository implements RequestRepositoryInterface
     {
         /** @var RequestInterface|AbstractModel $request */
         try {
-            $this->_resource->save($request);
+            $this->resource->save($request);
         } catch (Exception $exception) {
             throw new CouldNotSaveException(__('Could not save the record: %1', $exception->getMessage()));
         }
@@ -127,6 +127,6 @@ class RequestRepository implements RequestRepositoryInterface
      */
     public function create(array $data = []): RequestInterface
     {
-        return $this->_factory->create(['data' => $data]);
+        return $this->factory->create(['data' => $data]);
     }
 }

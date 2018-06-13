@@ -10,7 +10,7 @@ class SaveAndContinueButton extends GenericButton implements ButtonProviderInter
      * @return array
      * @codeCoverageIgnore
      */
-    public function getButtonData()
+    public function getButtonData(): array
     {
         return [
             'label' => __('Save and Continue Edit'),

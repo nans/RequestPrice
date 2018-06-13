@@ -9,25 +9,25 @@ class StatusFilterList implements OptionSourceInterface
     /**
      * @var array
      */
-    protected $_options;
+    protected $options;
 
     /**
      * Get options
      *
      * @return array
      */
-    public function toOptionArray()
+    public function toOptionArray():array
     {
-        if ($this->_options === null) {
-            $this->_options = [];
+        if ($this->options === null) {
+            $this->options = [];
 
             foreach (Status::getStatuses() as $key => $value) {
-                $this->_options[] = [
+                $this->options[] = [
                     'value' => $key,
                     'label' => $value
                 ];
             }
         }
-        return $this->_options;
+        return $this->options;
     }
 }

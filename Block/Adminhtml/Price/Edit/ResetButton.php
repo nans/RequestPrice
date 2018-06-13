@@ -10,7 +10,7 @@ class ResetButton extends GenericButton implements ButtonProviderInterface
      * @return array
      * @codeCoverageIgnore
      */
-    public function getButtonData()
+    public function getButtonData(): array
     {
         $data = [];
         if ($this->canRender('reset')) {
