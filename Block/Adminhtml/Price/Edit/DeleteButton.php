@@ -11,6 +11,7 @@ class DeleteButton extends GenericButton implements ButtonProviderInterface
 {
     /**
      * @return array
+     * @throws \Magento\Framework\Exception\NotFoundException
      */
     public function getButtonData()
     {

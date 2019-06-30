@@ -100,6 +100,7 @@ class RequestRepository implements RequestRepositoryInterface
             }
             $this->instances[$id] = $request;
         }
+
         return $this->instances[$id];
     }
 
@@ -117,6 +118,7 @@ class RequestRepository implements RequestRepositoryInterface
         } catch (Exception $exception) {
             throw new CouldNotSaveException(__('Could not save the record: %1', $exception->getMessage()));
         }
+
         return $request;
     }
 

@@ -19,6 +19,14 @@ class NewAction extends AbstractBaseAction
      */
     protected $resultForwardFactory;
 
+    /**
+     * @param Context $context
+     * @param ForwardFactory $resultForwardFactory
+     * @param RequestRepositoryInterface $requestRepository
+     * @param Registry $registry
+     * @param PageFactory $resultPageFactory
+     * @param Session $session
+     */
     public function __construct(
         Context $context,
         ForwardFactory $resultForwardFactory,

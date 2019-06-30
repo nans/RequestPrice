@@ -28,6 +28,7 @@ class StatusFilterList implements OptionSourceInterface
                 ];
             }
         }
+
         return $this->options;
     }
 }

@@ -72,6 +72,7 @@ class RequestActions extends Column
                 }
             }
         }
+
         return $dataSource;
     }
 }

@@ -1,5 +1,8 @@
 # Magento 2 - Request Price extension 
-Customer can request product price.
+Customer can request product price from details page.  
+![Sample](https://github.com/nans/devdocs/blob/master/RequestPrice/PDP.png "Product page")  
+![Sample](https://github.com/nans/devdocs/blob/master/RequestPrice/popup.png "Popup")  
+![Sample](https://github.com/nans/devdocs/blob/master/RequestPrice/requests.png "Admin panel")  
 
 # Supported  
 Magento 2.1.x - 2.3.x  

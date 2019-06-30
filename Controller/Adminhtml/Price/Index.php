@@ -17,6 +17,7 @@ class Index extends AbstractBaseAction
         /** @var ResultPage $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $this->_setResultPageParams($resultPage);
+
         return $resultPage;
     }
 

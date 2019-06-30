@@ -10,6 +10,10 @@ use Nans\RequestPrice\Helper\Acl;
 
 class Save extends AbstractBaseAction
 {
+    /**
+     * @return Redirect|\Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
     public function execute()
     {
         $data = $this->getRequest()->getParams();

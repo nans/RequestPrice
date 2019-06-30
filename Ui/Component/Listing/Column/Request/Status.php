@@ -50,6 +50,7 @@ class Status extends Column
         if (!key_exists($status, $statuses)) {
             throw new NotFoundException(__('Status not found'));
         }
+
         return self::getStatuses()[$status];
     }
 }

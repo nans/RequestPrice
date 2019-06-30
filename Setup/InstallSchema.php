@@ -12,6 +12,7 @@ class InstallSchema implements InstallSchemaInterface
     /**
      * @param SchemaSetupInterface $setup
      * @param ModuleContextInterface $context
+     * @throws \Zend_Db_Exception
      */
     public function install(
         SchemaSetupInterface $setup,
@@ -25,6 +26,7 @@ class InstallSchema implements InstallSchemaInterface
 
     /**
      * @param SchemaSetupInterface $setup
+     * @throws \Zend_Db_Exception
      */
     private function _createRequestTable(SchemaSetupInterface $setup)
     {
@@ -74,6 +76,7 @@ class InstallSchema implements InstallSchemaInterface
      * @param Table $table
      * @param SchemaSetupInterface $setup
      * @param array $fields
+     * @throws \Zend_Db_Exception
      */
     private function _addIndex(Table &$table, SchemaSetupInterface $setup, array $fields)
     {

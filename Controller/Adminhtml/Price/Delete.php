@@ -33,8 +33,9 @@ class Delete extends AbstractBaseAction
 
     /**
      * @param int $id
-     *
      * @return void
+     * @throws \Magento\Framework\Exception\CouldNotDeleteException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     protected function _deleteRecordById(int $id)
     {

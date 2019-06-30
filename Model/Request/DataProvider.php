@@ -39,6 +39,17 @@ class DataProvider extends AbstractDataProvider
      */
     private $request;
 
+    /**
+     * @param $name
+     * @param $primaryFieldName
+     * @param $requestFieldName
+     * @param RequestRepositoryInterface $requestRepository
+     * @param CollectionFactory $collectionFactory
+     * @param Registry $registry
+     * @param HttpRequestInterface $request
+     * @param array $meta
+     * @param array $data
+     */
     public function __construct(
         $name,
         $primaryFieldName,
@@ -59,28 +70,34 @@ class DataProvider extends AbstractDataProvider
 
     /**
      * @return array
+     * @throws NotFoundException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getData(): array
     {
         if (isset($this->loadedData)) {
+
             return $this->loadedData;
         }
 
         /** @var RequestInterface|AbstractModel $request */
         $request = $this->getCurrentRequest();
         $this->loadedData[$request->getId()] = $request->toArray();
+
         return $this->loadedData;
     }
 
     /**
      * @return RequestInterface
      * @throws NotFoundException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getCurrentRequest(): RequestInterface
     {
         /** @var RequestInterface|AbstractModel $request */
         $request = $this->registry->registry('request_price');
         if ($request && $request->getId()) {
+
             return $request;
         }
 
@@ -90,6 +107,7 @@ class DataProvider extends AbstractDataProvider
         }
 
         $request = $this->requestRepository->getById($params['id']);
+
         return $request;
     }
 }

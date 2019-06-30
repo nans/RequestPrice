@@ -15,6 +15,7 @@ class Edit extends AbstractBaseAction
      * Edit record data
      *
      * @return Page|Redirect
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function execute()
     {
