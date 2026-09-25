@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Nans\RequestPrice\Model;
 
@@ -8,9 +9,6 @@ use Nans\RequestPrice\Api\Data\RequestInterface;
 
 class Request extends AbstractModel implements RequestInterface
 {
-    /**
-     * CMS page cache tag
-     */
     const CACHE_TAG = 'request_price';
 
     /**
@@ -21,8 +19,6 @@ class Request extends AbstractModel implements RequestInterface
     protected $_cacheTag = self::CACHE_TAG;
 
     /**
-     * Initialize resource model
-     *
      * @return void
      */
     protected function _construct()
@@ -52,7 +48,7 @@ class Request extends AbstractModel implements RequestInterface
      * @param string $name
      * @return void
      */
-    public function setName(string $name)
+    public function setName(string $name): void
     {
         $this->setData(self::KEY_NAME, $name);
     }
@@ -69,7 +65,7 @@ class Request extends AbstractModel implements RequestInterface
      * @param string $email
      * @return void
      */
-    public function setEmail(string $email)
+    public function setEmail(string $email): void
     {
         $this->setData(self::KEY_EMAIL, $email);
     }
@@ -86,7 +82,7 @@ class Request extends AbstractModel implements RequestInterface
      * @param string $sku
      * @return void
      */
-    public function setSku(string $sku)
+    public function setSku(string $sku): void
     {
         $this->setData(self::KEY_SKU, $sku);
     }
@@ -103,7 +99,7 @@ class Request extends AbstractModel implements RequestInterface
      * @param string $comment
      * @return void
      */
-    public function setComment(string $comment)
+    public function setComment(string $comment): void
     {
         $this->setData(self::KEY_COMMENT, $comment);
     }
@@ -120,7 +116,7 @@ class Request extends AbstractModel implements RequestInterface
      * @param int $status
      * @return void
      */
-    public function setStatus(int $status)
+    public function setStatus(int $status): void
     {
         $this->setData(self::KEY_STATUS, $status);
     }

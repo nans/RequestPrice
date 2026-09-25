@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nans\RequestPrice\Api\Data;
 
 interface RequestInterface
@@ -17,17 +19,6 @@ interface RequestInterface
     const STATUS_CLOSED = 2;
 
     /**
-     * @return int
-     */
-    public function getId();
-
-    /**
-     * @param int $id
-     * @return void
-     */
-    public function setId($id);
-
-    /**
      * @return string
      */
     public function getName(): string;
@@ -36,7 +27,7 @@ interface RequestInterface
      * @param string $name
      * @return void
      */
-    public function setName(string $name);
+    public function setName(string $name): void;
 
     /**
      * @return string
@@ -47,7 +38,7 @@ interface RequestInterface
      * @param string $email
      * @return void
      */
-    public function setEmail(string $email);
+    public function setEmail(string $email): void;
 
     /**
      * @return string
@@ -58,7 +49,7 @@ interface RequestInterface
      * @param string $sku
      * @return void
      */
-    public function setSku(string $sku);
+    public function setSku(string $sku): void;
 
     /**
      * @return string
@@ -69,7 +60,7 @@ interface RequestInterface
      * @param string $comment
      * @return void
      */
-    public function setComment(string $comment);
+    public function setComment(string $comment): void;
 
     /**
      * @return int
@@ -80,7 +71,7 @@ interface RequestInterface
      * @param int $status
      * @return void
      */
-    public function setStatus(int $status);
+    public function setStatus(int $status): void;
 
     /**
      * @return string

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nans\RequestPrice\Model;
 
 use Magento\Framework\App\Request\Http;
@@ -10,12 +12,12 @@ use Nans\RequestPrice\Api\Repository\RequestRepositoryInterface;
 class RequestApi implements RequestApiInterface
 {
     /** @var Http */
-    protected $request;
+    protected Http $request;
 
     /**
      * @var RequestRepositoryInterface
      */
-    private $requestRepository;
+    private RequestRepositoryInterface $requestRepository;
 
     /**
      * @param Http $request

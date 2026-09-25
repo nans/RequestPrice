@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nans\RequestPrice\Api\Data;
 
 interface RequestApiInterface

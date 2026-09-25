@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Nans\RequestPrice\Model\Request;
 
@@ -11,6 +12,7 @@ use Nans\RequestPrice\Api\Data\RequestInterface;
 use Nans\RequestPrice\Api\Repository\RequestRepositoryInterface;
 use Nans\RequestPrice\Model\ResourceModel\Request\Collection;
 use Nans\RequestPrice\Model\ResourceModel\Request\CollectionFactory;
+use Magento\Framework\Exception\NoSuchEntityException;
 
 class DataProvider extends AbstractDataProvider
 {
@@ -22,22 +24,22 @@ class DataProvider extends AbstractDataProvider
     /**
      * @var array
      */
-    protected $loadedData;
+    protected array $loadedData;
 
     /**
      * @var RequestRepositoryInterface
      */
-    private $requestRepository;
+    private RequestRepositoryInterface $requestRepository;
 
     /**
      * @var Registry
      */
-    private $registry;
+    private Registry $registry;
 
     /**
      * @var HttpRequestInterface
      */
-    private $request;
+    private HttpRequestInterface $request;
 
     /**
      * @param $name
@@ -71,7 +73,7 @@ class DataProvider extends AbstractDataProvider
     /**
      * @return array
      * @throws NotFoundException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws NoSuchEntityException
      */
     public function getData(): array
     {
@@ -90,7 +92,7 @@ class DataProvider extends AbstractDataProvider
     /**
      * @return RequestInterface
      * @throws NotFoundException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws NoSuchEntityException
      */
     public function getCurrentRequest(): RequestInterface
     {

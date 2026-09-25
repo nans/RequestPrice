@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Nans\RequestPrice\Api\Repository;
 
@@ -16,7 +17,7 @@ interface RequestRepositoryInterface
      * @throws CouldNotDeleteException
      * @throws NoSuchEntityException
      */
-    public function delete(RequestInterface $request);
+    public function delete(RequestInterface $request): void;
 
     /**
      * @param int $id
@@ -25,7 +26,7 @@ interface RequestRepositoryInterface
      * @throws NoSuchEntityException
      * @throws CouldNotDeleteException
      */
-    public function deleteById(int $id);
+    public function deleteById(int $id): void;
 
     /**
      * @param int $id
