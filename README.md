@@ -5,8 +5,8 @@ Customer can request product price from details page.
 ![Sample](https://github.com/nans/devdocs/blob/master/RequestPrice/requests.png "Admin panel")  
 
 # Supported  
-Magento 2.1.x - 2.3.x  
-PHP 7.0 and higher  
+Magento 2.1.x - 2.4.x  
+PHP 8.2 and higher  
 
 # Installation Instruction  
 * Copy the content of the repo to the Magento 2: app/code/Nans/RequestPrice

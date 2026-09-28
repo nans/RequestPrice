@@ -1,9 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace Nans\RequestPrice\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
-use Nans\RequestPrice\Model\Request as Model;
+use Nans\RequestPrice\Api\Data\RequestInterface;
 
 class Request extends AbstractDb
 {
@@ -14,6 +15,6 @@ class Request extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init(self::MAIN_TABLE, Model::KEY_ID);
+        $this->_init(self::MAIN_TABLE, RequestInterface::KEY_ID);
     }
 }

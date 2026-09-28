@@ -2,7 +2,7 @@
   "name": "nans/request-price",
   "description": "Magento 2 - Request Price",
   "require": {
-    "php": ">=7.0"
+    "php": ">=8.2"
   },
   "license": [
     "MIT"

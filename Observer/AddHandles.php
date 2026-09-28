@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Nans\RequestPrice\Observer;
 
@@ -10,7 +11,7 @@ class AddHandles implements ObserverInterface
     /**
      * @param Observer $observer
      */
-    public function execute(Observer $observer)
+    public function execute(Observer $observer):void
     {
         $layout = $observer->getEvent()->getLayout();
         $layout->getUpdate()->addHandle('customer_request_price');

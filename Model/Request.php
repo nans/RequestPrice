@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Nans\RequestPrice\Model;
 
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Model\AbstractModel;
 use Nans\RequestPrice\Model\ResourceModel\Request as ResourceModel;
 use Nans\RequestPrice\Api\Data\RequestInterface;
@@ -20,6 +21,7 @@ class Request extends AbstractModel implements RequestInterface
 
     /**
      * @return void
+     * @throws LocalizedException
      */
     protected function _construct()
     {
@@ -31,7 +33,7 @@ class Request extends AbstractModel implements RequestInterface
      *
      * @return string[]
      */
-    public function getIdentities()
+    public function getIdentities():array
     {
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
