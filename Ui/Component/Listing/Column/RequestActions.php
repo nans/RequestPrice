@@ -15,7 +15,7 @@ class RequestActions extends Column
     const PATH_DELETE = 'request/price/delete';
 
     /** @var UrlInterface */
-    protected $urlBuilder;
+    protected UrlInterface $urlBuilder;
 
     /**
      * QuestionActions constructor.
@@ -44,7 +44,7 @@ class RequestActions extends Column
      *
      * @return array
      */
-    public function prepareDataSource(array $dataSource)
+    public function prepareDataSource(array $dataSource): array
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {

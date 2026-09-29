@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Nans\RequestPrice\Model\Repository;
 
@@ -17,20 +18,19 @@ class RequestRepository implements RequestRepositoryInterface
     /**
      * @var array
      */
-    protected $instances = [];
+    protected array $instances = [];
 
     /**
      * @var ResourceRequest
      */
-    protected $resource;
+    protected ResourceRequest $resource;
 
     /**
      * @var RequestFactory
      */
-    protected $factory;
+    protected RequestFactory $factory;
 
     /**
-     * Factory constructor
      * @param ResourceRequest $resource ,
      * @param RequestFactory $factory
      */
@@ -50,7 +50,7 @@ class RequestRepository implements RequestRepositoryInterface
      * @throws CouldNotDeleteException
      * @throws NoSuchEntityException
      */
-    public function delete(RequestInterface $request)
+    public function delete(RequestInterface $request): void
     {
         /** @var RequestInterface|AbstractModel $request */
         $id = $request->getId();
@@ -74,7 +74,7 @@ class RequestRepository implements RequestRepositoryInterface
      * @throws NoSuchEntityException
      * @throws CouldNotDeleteException
      */
-    public function deleteById(int $id)
+    public function deleteById(int $id): void
     {
         $this->delete($this->getById($id));
     }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Nans\RequestPrice\Ui\Component\Listing\Column\Request;
 
@@ -9,16 +10,14 @@ class StatusFilterList implements OptionSourceInterface
     /**
      * @var array
      */
-    protected $options;
+    protected array $options = [];
 
     /**
-     * Get options
-     *
      * @return array
      */
     public function toOptionArray():array
     {
-        if ($this->options === null) {
+        if (count($this->options) === 0) {
             $this->options = [];
 
             foreach (Status::getStatuses() as $key => $value) {
